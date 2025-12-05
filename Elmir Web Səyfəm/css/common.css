@@ -1,0 +1,393 @@
+/* CSS Variables */
+:root {
+    --color-bg: #0a0a0a;
+    --color-bg-secondary: #1a1a1a;
+    --color-primary: #00ff41;
+    --color-primary-dark: #00cc33;
+    --color-text: #e0e0e0;
+    --color-text-dim: #999;
+    --color-border: #2a2a2a;
+    --border-radius: 12px;
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/* Animated Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(0, 255, 65, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 255, 65, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(0, 255, 65, 0.03) 0%, transparent 40%);
+    animation: backgroundFlow 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(0, 255, 65, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridMove 30s linear infinite;
+    pointer-events: none;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+@keyframes backgroundFlow {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg);
+        opacity: 0.4; 
+    }
+    33% { 
+        transform: scale(1.2) rotate(5deg);
+        opacity: 0.6; 
+    }
+    66% { 
+        transform: scale(0.9) rotate(-5deg);
+        opacity: 0.5; 
+    }
+}
+
+@keyframes gridMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(50px); }
+}
+
+/* Header & Navigation */
+.header {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(10, 10, 10, 0.95));
+    border-bottom: 2px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(0, 255, 65, 0.15);
+    backdrop-filter: blur(20px);
+    width: 100%;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    letter-spacing: 3px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    animation: brandGlow 3s ease-in-out infinite;
+}
+
+.nav-brand:hover {
+    transform: scale(1.05);
+    animation: none;
+    text-shadow: 
+        0 0 20px var(--color-primary),
+        0 0 40px rgba(0, 255, 65, 0.5);
+}
+
+@keyframes brandGlow {
+    0%, 100% { 
+        text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+    }
+    50% { 
+        text-shadow: 0 0 20px rgba(0, 255, 65, 0.6);
+    }
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    position: relative;
+    z-index: 1001;
+}
+
+.nav-toggle span {
+    width: 28px;
+    height: 3px;
+    background: var(--color-primary);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: var(--color-text);
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--color-primary);
+    background-color: rgba(0, 255, 65, 0.1);
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(10, 10, 10, 0.95));
+    border-top: 2px solid var(--color-border);
+    text-align: center;
+    padding: 2.5rem;
+    color: var(--color-text-dim);
+    margin-top: auto;
+    position: relative;
+    width: 100%;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+    animation: footerLine 3s ease-in-out infinite;
+}
+
+@keyframes footerLine {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+}
+
+/* Common Utilities */
+.back-btn {
+    display: inline-block;
+    color: var(--color-primary);
+    text-decoration: none;
+    padding: 0.8rem 1.8rem;
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+}
+
+.back-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: var(--color-primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.back-btn:hover::before {
+    width: 400px;
+    height: 400px;
+}
+
+.back-btn:hover {
+    color: var(--color-bg);
+    box-shadow: 0 0 40px rgba(0, 255, 65, 0.6);
+    transform: translateX(-8px);
+}
+
+.back-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    animation: contentFadeIn 0.8s ease-out;
+    width: 100%;
+    max-width: 100%;
+}
+
+@keyframes contentFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.page-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-primary);
+    margin-bottom: 0.8rem;
+    filter: drop-shadow(0 0 15px rgba(0, 255, 65, 0.4));
+    text-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+}
+
+.page-header p {
+    color: var(--color-text-dim);
+    font-size: 1.1rem;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .nav {
+        padding: 1rem;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        flex-direction: column;
+        background: linear-gradient(135deg, rgba(26, 26, 26, 0.98), rgba(10, 10, 10, 0.98));
+        width: 100%;
+        text-align: center;
+        transition: left 0.3s ease;
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.9);
+        padding: 2rem 0;
+        gap: 0;
+        backdrop-filter: blur(20px);
+        align-items: center;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 0.5rem 0;
+        width: 100%;
+    }
+
+    .nav-menu a {
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+
+    .container {
+        padding: 0 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav {
+        padding: 0.8rem;
+    }
+
+    .nav-brand {
+        font-size: 1.3rem;
+    }
+
+    .page-header h1 {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+    }
+
+    .back-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
