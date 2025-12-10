@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Elmir Bağırov ilə Əlaqə">
+    <title>Əlaqə - Elmir Bağırov</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">EB</div>
+            <button class="nav-toggle" aria-label="Naviqasiyanı aç">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Ana Səhifə</a></li>
+                <li><a href="about.html">Haqqımda</a></li>
+                <li><a href="skills.html">Bacarıqlarım</a></li>
+                <li><a href="projects.html">Layihələr</a></li>
+                <li><a href="hobbies.html">Hobbilər</a></li>
+                <li><a href="contact.html" class="active">Əlaqə</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <a href="index.html" class="back-btn"><span>← Ana Səhifəyə Qayıt</span></a>
+            
+            <section class="page-header">
+                <h1>Əlaqə Saxlayın</h1>
+                <p>Aşağıdakı yollarla mənə müraciət edə bilərsiniz.</p>
+            </section>
+
+            <section class="contact-grid">
+                <div class="contact-card reveal">
+                    <div class="contact-icon">📞</div>
+                    <h3>Telefon</h3>
+                    <a href="tel:070-313-77-21" class="contact-link" id="phone-link"><span>070-313-77-21</span></a>
+                    <button class="copy-btn" data-copy="070-313-77-21" aria-label="Telefon nömrəsini kopyala">
+                        Nömrəni Kopyala
+                    </button>
+                </div>
+
+                <div class="contact-card reveal">
+                    <div class="contact-icon">📷</div>
+                    <h3>Instagram</h3>
+                    <a href="https://www.instagram.com/ef.0707/?next=%2F" target="_blank" rel="noopener noreferrer" class="contact-link" id="instagram-link">
+                        <span>@ef.0707</span>
+                    </a>
+                    <p class="contact-hint">Yeni pəncərədə açılır</p>
+                </div>
+
+                <div class="contact-card reveal">
+                    <div class="contact-icon">✉️</div>
+                    <h3>E-poçt</h3>
+                    <a href="mailto:elmirbagirov30@gmail.com" class="contact-link" id="email-link"><span>elmirbagirov30@gmail.com</span></a>
+                    <p class="contact-hint">E-poçt proqramını açır</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Elmir Bağırov. Bütün hüquqlar qorunur.</p>
+    </footer>
+    
+    <script src="common.js"></script>
+    <script src="contact.js"></script>
+</body>
+</html>

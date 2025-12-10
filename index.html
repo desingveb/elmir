@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Elmir Bağırov - Veb Dizayner və Proqram Mühəndisliyi Tələbəsi">
+    <title>Elmir Bağırov - Portfolio</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="loading.css">
+    <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="share.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <div class="loading-text">Yüklənir...</div>
+        </div>
+    </div>
+
+    <!-- Əsas Məzmun -->
+    <div id="mainContent" class="main-wrapper">
+        <header class="header">
+            <nav class="nav">
+                <!-- Axtarış -->
+                <div class="search-container">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="Səhifə axtar... (Ctrl+K)"
+                        aria-label="Səhifə axtarışı"
+                    >
+                    <button class="search-btn" id="searchBtn" aria-label="Axtar">
+                        <span class="search-icon">🔍</span>
+                    </button>
+                    <div class="search-suggestions" id="searchSuggestions"></div>
+                </div>
+
+                <!-- Paylaş düyməsi -->
+                <div class="share-wrapper">
+                    <button class="share-btn" id="shareBtn" aria-label="Paylaş" title="Səhifəni Paylaş">
+                        <span class="share-icon">🔗</span>
+                    </button>
+                    <div class="share-menu" id="shareMenu">
+                        <button class="share-option" data-platform="whatsapp">
+                            <span class="share-platform-icon">💬</span>
+                            WhatsApp
+                        </button>
+                        <button class="share-option" data-platform="instagram">
+                            <span class="share-platform-icon">📷</span>
+                            Instagram
+                        </button>
+                        <button class="share-option" data-platform="copy">
+                            <span class="share-platform-icon">📋</span>
+                            Link Kopyala
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobil menyu -->
+                <button class="nav-toggle" aria-label="Naviqasiyanı aç">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <!-- Naviqasiya menyusu -->
+                <ul class="nav-menu">
+                    <li><a href="about.html">Haqqımda</a></li>
+                    <li><a href="skills.html">Bacarıqlarım</a></li>
+                    <li><a href="projects.html">Layihələr</a></li>
+                    <li><a href="hobbies.html">Hobbilər</a></li>
+                    <li><a href="contact.html">Əlaqə</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-home">
+            <!-- Hero bölməsi -->
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="profile-photo-container">
+                        <img src="imgs/profi1.webp" alt="Elmir Bağırov profil şəkli" class="profile-photo">
+                    </div>
+                    <h1 class="hero-title">Elmir Bağırov</h1>
+                    <p class="hero-subtitle">Veb Dizayner və Proqram Təminatı Tələbəsi</p>
+                </div>
+            </section>
+
+            <!-- Naviqasiya kartları -->
+            <section class="navigation-grid">
+                <a href="about.html" class="nav-box" aria-label="Haqqımda səhifəsinə keç">
+                    <span class="nav-icon">👤</span>
+                    <h2>Haqqımda</h2>
+                    <p>Təhsil və şəxsi məlumatlarım</p>
+                </a>
+                <a href="skills.html" class="nav-box" aria-label="Bacarıqlarım səhifəsinə keç">
+                    <span class="nav-icon">💻</span>
+                    <h2>Bacarıqlarım</h2>
+                    <p>Texniki qabiliyyətlərim</p>
+                </a>
+                <a href="projects.html" class="nav-box" aria-label="Layihələr səhifəsinə keç">
+                    <span class="nav-icon">🚀</span>
+                    <h2>Layihələr</h2>
+                    <p>Gördüyüm işlər və portfolio</p>
+                </a>
+                <a href="hobbies.html" class="nav-box" aria-label="Hobbilər səhifəsinə keç">
+                    <span class="nav-icon">🎮</span>
+                    <h2>Hobbilər</h2>
+                    <p>Maraqlarım və həvəslərim</p>
+                </a>
+                <a href="contact.html" class="nav-box" aria-label="Əlaqə səhifəsinə keç">
+                    <span class="nav-icon">📧</span>
+                    <h2>Əlaqə</h2>
+                    <p>Mənimlə əlaqə saxlayın</p>
+                </a>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 Elmir Bağırov. Bütün hüquqlar qorunur.</p>
+        </footer>
+    </div>
+
+    <!-- Bildiriş -->
+    <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+    
+    <!-- JavaScript faylları -->
+    <script src="common.js"></script>
+    <script src="loading.js"></script>
+    <script src="search.js"></script>
+    <script src="share.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
